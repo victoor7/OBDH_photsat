@@ -17,7 +17,7 @@
 //******************************************************************************
 // Required software interfaces
 
-#include <public/pus_services_iface_v1.h>
+#include <public/pus_servcices_iface_v1.h>
 
 
 /**
@@ -35,7 +35,7 @@ public:
 	 */
 	 enum TEDROOMCCObsMngSignal { EDROOMSignalTimeout, 
 							EDROOMSignalDestroy, 
-							SObservTC };
+							SObsMng_TC };
 
 	/**
 	 * \class CCObsMng::CEDROOMMemory
@@ -90,8 +90,8 @@ public:
 	//******************  Component Communication Ports *******************
 	// ********************************************************************
 
-	//! ObservCtrl Component Port
-	CEDROOMInterface	ObservCtrl;
+	//! ObsMng Component Port
+	CEDROOMInterface	ObsMng;
 
 
 	// ********************************************************************
@@ -102,8 +102,8 @@ public:
 	CEDROOMTimingSAP	 EDROOMtimingSAP;
 
 
-	//! ObservTimer Timing Port
-	CEDROOMTimingInterface	ObservTimer;
+	//! ObsMngTimer Timing Port
+	CEDROOMTimingInterface	ObsMngTimer;
 	//! AttCtrlTimer Timing Port
 	CEDROOMTimingInterface	AttCtrlTimer;
 
@@ -174,7 +174,7 @@ public:
 	 */
 	enum TEDROOMCCObsMngSignal { EDROOMSignalTimeout,
 		EDROOMSignalDestroy,
-		SObservTC };
+		SObsMng_TC };
 
 
 		friend class CCObsMng;
@@ -189,29 +189,28 @@ public:
 		CEDROOMMessage * &MsgBack;
 
 		//!Component ports
-		CEDROOMInterface & ObservCtrl;
-		CEDROOMTimingInterface & ObservTimer;
+		CEDROOMInterface & ObsMng;
+		CEDROOMTimingInterface & ObsMngTimer;
 		CEDROOMTimingInterface & AttCtrlTimer;
 
 
 		//! State Identifiers
 		enum TEDROOMStateID{I,
-			Standby,
+			StandBy,
 			Observation};
 
 		//!Transition Identifiers
 		enum TEDROOMTransitionID{Init,
-			ExecTC,
-			DoAttCtrl,
-			DoAttCtrl_ToObservation,
-			DoAttCtrl_ToStandBy,
+			DoAttitudeCtrl,
+			DoAttitudeCtrl_ToObservation,
+			DoAttitudeCtrl_ProgAttitudeCtrl,
 			TakeImage,
 			TakeImage_LastImage,
-			TakeImage_NextImage,
+			TakeImage_NoLastImage,
+			ExecObsTC,
 			EDROOMMemoryTrans };
 
 		//!Constants
-		const Pr_Time CAttitudePeriod;
 		const Pr_Time CImageInterval;
 
 
@@ -256,7 +255,7 @@ public:
 		/**
 		 * \brief  
 		 */
-		void	FDoActtitudeCtrl();
+		void	FDoAttitudeCtrl();
 
 		/**
 		 * \brief  
@@ -266,7 +265,7 @@ public:
 		/**
 		 * \brief  
 		 */
-		void	FExecCameraMngTC();
+		void	FExecObsMng_TC();
 
 		/**
 		 * \brief  
@@ -349,13 +348,13 @@ public:
 
 		// ***********************************************************************
 
-		// Leaf SubState Standby
+		// Leaf SubState StandBy
 
 		// ***********************************************************************
 
 
 
-		TEDROOMTransId EDROOMStandbyArrival();
+		TEDROOMTransId EDROOMStandByArrival();
 
 		// ***********************************************************************
 
