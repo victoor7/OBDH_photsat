@@ -1,3 +1,4 @@
 En realidad, llamar librerías a las "libraries" de los lenguajes de programación, es erróneo. Deberíamos referirnos a ellas como: Bibliotecas. 
 
-![22aeddfba681fd03faf724e2736dd165](https://github.com/user-attachments/assets/bc849e56-3d5d-4f40-9bcd-f7f5b5dfd44c)
+![images](https://github.com/user-attachments/assets/511331b5-78e1-4a43-b526-a4332c9e9f43)
+
