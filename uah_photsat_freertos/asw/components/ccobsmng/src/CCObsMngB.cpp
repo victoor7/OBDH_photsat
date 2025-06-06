@@ -20,6 +20,7 @@ CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(CCObsMng &act,
 	ObsMngTimer(EDROOMcomponent.ObsMngTimer),
 	AttCtrlTimer(EDROOMcomponent.AttCtrlTimer),
 	CImageInterval(0,500000),
+	Ccien_ms(0,100000),
 	VNextTimeOut(EDROOMpVarVNextTimeOut)
 {
 }
@@ -33,6 +34,7 @@ CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(EDROOM_CTX_Top_0 &context):
 	ObsMngTimer(context.ObsMngTimer),
 	AttCtrlTimer(context.AttCtrlTimer),
 	CImageInterval(0,500000),
+	Ccien_ms(0,100000),
 	VNextTimeOut(context.VNextTimeOut)
 {
 
@@ -127,7 +129,7 @@ void	CCObsMng::EDROOM_CTX_Top_0::FProgAttitudeCtrl()
 	//Timing Service useful methods
 	 
 time.GetTime(); // Get current monotonic time
-time+=Pr_Time(0,100000);
+time+=Ccien_ms;
  
    //Program absolute timer 
    AttCtrlTimer.InformAt( time ); 

@@ -212,6 +212,7 @@ public:
 
 		//!Constants
 		const Pr_Time CImageInterval;
+		const Pr_Time Ccien_ms;
 
 
 		//!Variables
