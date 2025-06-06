@@ -19,7 +19,7 @@ CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(CCObsMng &act,
 	ObsMng(EDROOMcomponent.ObsMng),
 	ObsMngTimer(EDROOMcomponent.ObsMngTimer),
 	AttCtrlTimer(EDROOMcomponent.AttCtrlTimer),
-	CImageInterval(0,5),
+	CImageInterval(0,500000),
 	VNextTimeOut(EDROOMpVarVNextTimeOut)
 {
 }
@@ -32,7 +32,7 @@ CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(EDROOM_CTX_Top_0 &context):
 	ObsMng(context.ObsMng),
 	ObsMngTimer(context.ObsMngTimer),
 	AttCtrlTimer(context.AttCtrlTimer),
-	CImageInterval(0,5),
+	CImageInterval(0,500000),
 	VNextTimeOut(context.VNextTimeOut)
 {
 
@@ -110,9 +110,8 @@ void	CCObsMng::EDROOM_CTX_Top_0::FInit()
 //Timing Service useful methods
 	 
 time.GetTime(); // Get current monotonic time
-time+=Pr_Time(0,100000); // Add X sec + Y microsec
-
-
+time+=Pr_Time(0,100000);
+ 
    //Program absolute timer 
    AttCtrlTimer.InformAt( time ); 
 }
@@ -128,8 +127,8 @@ void	CCObsMng::EDROOM_CTX_Top_0::FProgAttitudeCtrl()
 	//Timing Service useful methods
 	 
 time.GetTime(); // Get current monotonic time
-time+=Pr_Time(0,100000); // Add X sec + Y microsec
-
+time+=Pr_Time(0,100000);
+ 
    //Program absolute timer 
    AttCtrlTimer.InformAt( time ); 
 }
@@ -207,8 +206,7 @@ return pus_service129_is_observation_ready();
 
 CCObsMng::EDROOM_SUB_Top_0::EDROOM_SUB_Top_0 (CCObsMng&act):
 		EDROOM_CTX_Top_0(act,
-			VNextTimeOut),
-		VNextTimeOut()
+			VNextTimeOut)
 {
 
 }
