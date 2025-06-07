@@ -51,6 +51,10 @@ EmuGSS_TCProgram129_1 prog_FT_0010_step1(OBT_AFTER_POWER_ON+11,
 		"FT_UAH_PHOTSAT_SERV_129_0010_Step0, Send Pitch & Yaw desired attitude and "
 		"number of images",120,240,4);
 
+//Terminamos el test
+EmuGSS_TCProgram128_1 prog_FT_0010_step3(OBT_AFTER_POWER_ON+100,
+		"END FUNCTIONAL TEST");
+
 #endif
 
 
@@ -99,6 +103,9 @@ EmuGSS_TCProgram129_1 prog_FT_0010_step7(OBT_AFTER_POWER_ON+22,
 		"FT_UAH_PHOTSAT_SERV_129_0010_Step7, Send Pitch & Yaw desired attitude and "
 		"number of images",-1500,1500,6);
 
+//Terminamos el test
+EmuGSS_TCProgram128_1 prog_FT_0010_step8(OBT_AFTER_POWER_ON+50,
+		"END FUNCTIONAL TEST");
 
 #endif
 
